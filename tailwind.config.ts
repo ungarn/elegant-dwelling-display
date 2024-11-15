@@ -52,6 +52,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        luxury: {
+          50: "#f8f7f4",
+          100: "#efede7",
+          200: "#d8d5c8",
+          300: "#c2bca9",
+          400: "#a49c83",
+          500: "#8c8366",
+          600: "#736c54",
+          700: "#5c5643",
+          800: "#454134",
+          900: "#2d2a22",
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -67,10 +79,30 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "fade-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.5s ease-out",
+        "fade-in": "fade-in 0.3s ease-out",
       },
     },
   },
