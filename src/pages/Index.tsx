@@ -3,7 +3,7 @@ import { Camera, Home, MapPin, User, DollarSign, Calendar, Calculator, FileText,
 import { motion } from "framer-motion";
 
 const propertyImages = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+  "/lovable-uploads/54f7fe51-f6ca-460a-bfda-808d162af3b1.png",
   "/lovable-uploads/6feb3fcb-8958-4c73-abd5-97cb657f37d8.png",
   "/lovable-uploads/7dab745f-6089-437a-8401-d1218e9a2f52.png",
   "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
@@ -37,7 +37,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-luxury-50 to-white">
       {/* Header Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-lg font-light">1901 Elendy Lane</div>
           <nav className="hidden md:flex space-x-8">
@@ -56,7 +56,8 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-screen">
+      <section className="relative h-screen mt-16">
+        <div className="absolute inset-4 border-8 border-white z-10"></div>
         <motion.img
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -65,8 +66,8 @@ const Index = () => {
           alt="Luxury Property"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute bottom-0 left-0 p-8 text-white">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute bottom-12 left-12 p-8 text-white z-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,7 +77,7 @@ const Index = () => {
             <p className="text-xl opacity-90">Anytown, CA</p>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 right-0 p-8">
+        <div className="absolute bottom-12 right-12 p-8 z-20">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
