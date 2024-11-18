@@ -3,10 +3,10 @@ import { Camera, Home, MapPin, User, DollarSign, Calendar, Calculator, FileText,
 import { motion } from "framer-motion";
 
 const propertyImages = [
+  "/lovable-uploads/7dab745f-6089-437a-8401-d1218e9a2f52.png",
   "/lovable-uploads/6feb3fcb-8958-4c73-abd5-97cb657f37d8.png",
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
   "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
 ];
 
 const propertyStats = [
@@ -36,6 +36,25 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-luxury-50 to-white">
+      {/* Header Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-lg font-light">1901 Elendy Lane</div>
+          <nav className="hidden md:flex space-x-8">
+            <a href="#overview" className="text-gray-600 hover:text-gray-900">Overview</a>
+            <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
+            <a href="#photos" className="text-gray-600 hover:text-gray-900">Photos</a>
+            <a href="#video" className="text-gray-600 hover:text-gray-900">Video</a>
+            <a href="#3dtour" className="text-gray-600 hover:text-gray-900">3D Tour</a>
+            <a href="#floorplans" className="text-gray-600 hover:text-gray-900">Floor Plans</a>
+            <a href="#map" className="text-gray-600 hover:text-gray-900">Map</a>
+          </nav>
+          <button className="bg-luxury-800 text-white px-4 py-2 rounded hover:bg-luxury-900 transition-colors">
+            REQUEST INFO
+          </button>
+        </div>
+      </header>
+
       {/* Hero Section */}
       <section className="relative h-screen">
         <motion.img
@@ -47,20 +66,29 @@ const Index = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 flex flex-col justify-end items-center text-white p-8">
+        <div className="absolute bottom-0 left-0 p-8 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-center mb-8"
           >
-            <div className="mb-4 text-sm tracking-wider">40 Biltmore Estates Dr, Phoenix, AZ 85016</div>
-            <div className="text-3xl font-light mb-4">Offered at $10,000,000</div>
+            <h1 className="text-4xl font-light mb-2">1901 Elendy Lane</h1>
+            <p className="text-xl opacity-90">Anytown, CA</p>
+          </motion.div>
+        </div>
+        <div className="absolute bottom-0 right-0 p-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-white text-4xl font-light"
+          >
+            $1,500,000
           </motion.div>
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Rest of the sections */}
       <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-light text-center mb-12">GALLERY</h2>
