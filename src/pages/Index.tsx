@@ -3,9 +3,9 @@ import { Camera, Home, MapPin, User, DollarSign, Calendar, Calculator, FileText,
 import { motion } from "framer-motion";
 
 const propertyImages = [
-  "/lovable-uploads/7dab745f-6089-437a-8401-d1218e9a2f52.png",
-  "/lovable-uploads/6feb3fcb-8958-4c73-abd5-97cb657f37d8.png",
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+  "/lovable-uploads/6feb3fcb-8958-4c73-abd5-97cb657f37d8.png",
+  "/lovable-uploads/7dab745f-6089-437a-8401-d1218e9a2f52.png",
   "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
 ];
 
