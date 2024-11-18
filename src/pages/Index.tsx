@@ -1,39 +1,35 @@
 import { useState } from "react";
-import { Camera, House, MapPin, User, DollarSign } from "lucide-react";
+import { Camera, Home, MapPin, User, DollarSign, Calendar, Calculator, FileText, Headphones, BarChart, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const propertyImages = [
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+  "/lovable-uploads/6feb3fcb-8958-4c73-abd5-97cb657f37d8.png",
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
   "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
   "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
 ];
 
-const agents = [
-  {
-    name: "Sarah Johnson",
-    title: "Senior Luxury Property Specialist",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    phone: "+1 (555) 123-4567",
-  },
-  {
-    name: "Michael Chen",
-    title: "Executive Real Estate Advisor",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    phone: "+1 (555) 987-6543",
-  },
+const propertyStats = [
+  { value: "8,295", label: "SQFT" },
+  { value: "32,474", label: "LOT SIZE SF" },
+  { value: "1,147", label: "GARAGE" },
 ];
 
-const propertyFeatures = [
-  "5 Bedrooms",
-  "6 Bathrooms",
-  "3-Car Garage",
-  "Wine Cellar",
-  "Home Theater",
-  "Infinity Pool",
-  "Smart Home System",
-  "Private Garden",
+const tools = [
+  { icon: Calendar, label: "Schedule a showing" },
+  { icon: Calculator, label: "Mortgage Calculator" },
+  { icon: FileText, label: "Get Info" },
+  { icon: Headphones, label: "Share Info" },
+  { icon: BarChart, label: "Market Data" },
+  { icon: GraduationCap, label: "School Data" },
 ];
+
+const agent = {
+  name: "Michael Bunkin",
+  title: "Luxury Property Specialist",
+  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+  phone: "+1 (555) 123-4567",
+};
 
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState(propertyImages[0]);
@@ -51,127 +47,131 @@ const Index = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
+        <div className="absolute inset-0 flex flex-col justify-end items-center text-white p-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-center"
+            className="text-center mb-8"
           >
-            <div className="mb-4 text-sm tracking-wider">EXCLUSIVE LISTING</div>
-            <h1 className="text-5xl md:text-7xl font-light mb-4">Hillside Haven Estate</h1>
-            <div className="flex items-center justify-center gap-4 text-lg">
-              <span className="flex items-center gap-2">
-                <MapPin className="w-5 h-5" />
-                Beverly Hills, CA
-              </span>
-              <span className="flex items-center gap-2">
-                <DollarSign className="w-5 h-5" />
-                12,500,000
-              </span>
-            </div>
+            <div className="mb-4 text-sm tracking-wider">40 Biltmore Estates Dr, Phoenix, AZ 85016</div>
+            <div className="text-3xl font-light mb-4">Offered at $10,000,000</div>
           </motion.div>
         </div>
       </section>
 
-      {/* Property Details */}
-      <section className="container mx-auto px-4 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="property-card"
-        >
-          <h2 className="section-title">Property Overview</h2>
-          <p className="text-luxury-600 leading-relaxed mb-8">
-            Nestled in the prestigious Beverly Hills, this architectural masterpiece offers the perfect
-            blend of luxury and comfort. With breathtaking views of the city and mountains, this
-            contemporary estate spans over 8,500 square feet of meticulously designed living space.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {propertyFeatures.map((feature, index) => (
-              <motion.div
-                key={feature}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+      {/* Gallery Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-light text-center mb-12">GALLERY</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {propertyImages.map((image, index) => (
+              <motion.img
+                key={image}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="feature-item"
+                src={image}
+                alt={`Property Image ${index + 1}`}
+                className="w-full h-64 object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => setSelectedImage(image)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Property Stats */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-3 gap-8 justify-items-center">
+            {propertyStats.map((stat) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-center"
               >
-                <House className="w-5 h-5" />
-                {feature}
+                <div className="text-4xl font-light mb-2">{stat.value}</div>
+                <div className="text-sm tracking-wider text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* Photo Gallery */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="section-title text-center mb-12">Photo Gallery</h2>
-        <div className="image-gallery">
-          {propertyImages.map((image, index) => (
-            <motion.img
-              key={image}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              src={image}
-              alt={`Property Image ${index + 1}`}
-              onClick={() => setSelectedImage(image)}
-              className="cursor-pointer"
+      {/* Tools Section */}
+      <section className="py-16 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-light text-center text-white mb-12">TOOLS</h2>
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
+            {tools.map((tool) => (
+              <motion.div
+                key={tool.label}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-center text-white cursor-pointer hover:text-gray-300 transition-colors"
+              >
+                <tool.icon className="w-8 h-8 mx-auto mb-2" />
+                <div className="text-sm">{tool.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Agent Section */}
+      <section className="py-16 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-light text-center text-white mb-12">REPRESENTED BY</h2>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="flex flex-col items-center"
+          >
+            <img
+              src={agent.image}
+              alt={agent.name}
+              className="w-32 h-32 rounded-full object-cover mb-4"
             />
-          ))}
+            <h3 className="text-2xl font-light text-white mb-2">{agent.name}</h3>
+            <p className="text-gray-400 mb-4">{agent.title}</p>
+            <p className="text-gray-400">{agent.phone}</p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Agents Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="section-title text-center mb-12">Meet Your Agents</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {agents.map((agent, index) => (
-            <motion.div
-              key={agent.name}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="agent-card"
+      {/* Contact Form */}
+      <section className="py-16 bg-gray-800">
+        <div className="container mx-auto px-4 max-w-md">
+          <form className="space-y-4">
+            <input
+              type="text"
+              placeholder="Your name"
+              className="w-full p-3 bg-gray-700 text-white rounded"
+            />
+            <input
+              type="email"
+              placeholder="Your email"
+              className="w-full p-3 bg-gray-700 text-white rounded"
+            />
+            <input
+              type="tel"
+              placeholder="Your phone"
+              className="w-full p-3 bg-gray-700 text-white rounded"
+            />
+            <textarea
+              placeholder="Your message"
+              className="w-full p-3 bg-gray-700 text-white rounded h-32"
+            />
+            <button
+              type="submit"
+              className="w-full bg-white text-gray-900 py-3 rounded hover:bg-gray-100 transition-colors"
             >
-              <div className="flex items-center gap-6">
-                <img
-                  src={agent.image}
-                  alt={agent.name}
-                  className="w-24 h-24 rounded-full object-cover"
-                />
-                <div>
-                  <h3 className="text-xl font-semibold text-luxury-800">{agent.name}</h3>
-                  <p className="text-luxury-600 mb-2">{agent.title}</p>
-                  <p className="text-luxury-500 flex items-center gap-2">
-                    <User className="w-4 h-4" />
-                    {agent.phone}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              SEND
+            </button>
+          </form>
         </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="container mx-auto px-4 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
-          <h2 className="text-4xl font-light mb-6">Schedule a Private Viewing</h2>
-          <p className="text-luxury-600 mb-8">
-            Experience the epitome of luxury living. Contact our agents to arrange your private tour.
-          </p>
-          <button className="bg-luxury-800 text-white px-8 py-3 rounded-lg hover:bg-luxury-700 transition-colors duration-300">
-            Contact Us
-          </button>
-        </motion.div>
       </section>
     </div>
   );
